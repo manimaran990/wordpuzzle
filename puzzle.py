@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import re
 
-words = open('words','r')
+words = open('/usr/share/dict/words','r')
 length = raw_input('enter word len : ')
 pattern = str(raw_input('enter pattern : '))
 pattern = pattern.replace('?','\w')
