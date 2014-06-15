@@ -2,8 +2,8 @@
 import re
 
 words = open('/usr/share/dict/words','r')
-length = raw_input('enter word len : ')
 pattern = str(raw_input('enter pattern : '))
+length = len(pattern)
 pattern = pattern.replace('?','\w')
 print ''
 for word in words:
