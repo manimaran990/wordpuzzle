@@ -12,16 +12,19 @@ class StartQT4(QtGui.QMainWindow):
 		QtCore.QObject.connect(self.ui.button_go,QtCore.SIGNAL('clicked()'), self.search_pattern)
 
 	def search_pattern(self):
-		lis = ''
+		lis = []
 		pattern = str(self.ui.text_pattern.text())
 		length = len(pattern)
-		pattern = pattern.replace('?','\w')
+		pattern = pattern.replace('?','\w')		
 		words = open('/usr/share/dict/words','r')
-		print ''
 		for word in words:
 			if len(word)== int(length)+1 and re.search(pattern,word):
-				lis += word+'\n'
-		self.ui.text_result.setText(lis)
+				lis.append(word)
+		
+		txt = ''
+		for w in lis: txt += w
+		self.ui.text_result.setText(txt)
+		self.ui.statusbar.showMessage("%d words found" % len(lis))
 				
 
 	
